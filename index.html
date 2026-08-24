@@ -3,38 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AR Electrical Hazard Inspection</title>
-  <!-- Google Model Viewer Library -->
-  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+  <title>AR Fire Hazard Inspection</title>
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js"></script>
   <style>
     body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #0F172A; color: white; }
     header { padding: 16px; text-align: center; background: #1E293B; }
     h2 { margin: 0; font-size: 1.1rem; color: #FF9800; }
     p { margin: 4px 0 0; font-size: 0.85rem; color: #94A3B8; }
-    model-viewer { width: 100vw; height: 60vh; background-color: #020617; }
+    model-viewer { width: 100vw; height: 60vh; background: radial-gradient(circle, #162033 0%, #020617 70%); }
     .badge { margin: 16px; padding: 14px; background: rgba(239, 68, 68, 0.15); border: 1px solid #EF4444; border-radius: 8px; text-align: center; }
     .badge b { color: #EF4444; font-size: 1rem; }
+    #ar-button { background: #ff9800; border: 0; border-radius: 999px; color: #16110a; font-weight: 800; padding: 13px 20px; margin: 0 0 20px; box-shadow: 0 3px 18px #ff6b0066; }
+    .tip { text-align: center; color: #cbd5e1; font-size: .82rem; margin: 0 18px 16px; }
   </style>
 </head>
 <body>
   <header>
-    <h2>AR Inspection: Old Fusebox</h2>
-    <p>Tap "View in your space" to place in AR</p>
+    <h2>AR Inspection: Electrical Fusebox</h2>
+    <p>Place the live electrical-fire hazard on a wall</p>
   </header>
 
-  <!-- 3D / AR Viewer -->
-  <model-viewer 
-    src="https://modelviewer.dev/shared-assets/models/Astronaut.glb" 
-    ar 
-    ar-modes="webxr scene-viewer quick-look" 
-    camera-controls 
-    auto-rotate 
-    shadow-intensity="1">
+  <model-viewer
+    src="./assets/fusebox-hazard.glb"
+    ios-src="./assets/fusebox-hazard.usdz"
+    alt="A live electrical fusebox with fire and electrical arcs"
+    ar
+    ar-modes="webxr scene-viewer quick-look"
+    ar-placement="wall"
+    ar-scale="fixed"
+    camera-controls
+    autoplay
+    animation-name="Electrical fire"
+    shadow-intensity="1"
+    exposure="1.15">
+    <button slot="ar-button" id="ar-button">View hazardous Fusebox in AR</button>
   </model-viewer>
+
+  <p class="tip">On iPhone: tap the orange button, then point at a clear wall and place the Fusebox.</p>
 
   <div class="badge">
     <b>⚠ HAZARD DETECTED: CLASS E</b><br>
-    <span style="font-size: 0.8rem; color: #CBD5E1;">Electrical Arc & Live Current Sparks detected. Do NOT use water extinguishers!</span>
+    <span style="font-size: 0.8rem; color: #CBD5E1;">Electrical Arc &amp; live-current sparks detected. Do NOT use water extinguishers!</span>
   </div>
 </body>
 </html>

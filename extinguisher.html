@@ -10,14 +10,14 @@
     * { box-sizing: border-box; }
     body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #071120; color: #eef6ff; }
     header { padding: 18px; text-align: center; background: #1e2d43; border-bottom: 1px solid #334863; }
-    h1 { margin: 0; color: var(--accent); font-size: 1.35rem; }
+    h1 { margin: 0; color: #ff9800; font-size: 1.35rem; }
     header p { margin: 6px 0 0; color: #c4d3e6; font-size: .9rem; }
     model-viewer { display: block; width: 100%; height: 52vh; min-height: 380px; background: radial-gradient(circle at 50% 35%, #20385b, #071120 73%); }
     #ar-button { background: var(--accent); border: 0; border-radius: 999px; color: #14100a; font-weight: 800; font-size: 1rem; padding: 14px 21px; box-shadow: 0 4px 18px #ff6b0066; }
     .tip { margin: 0; padding: 12px 18px; text-align: center; color: #cfdaea; font-size: .84rem; background: #0d1a2c; }
     main { padding: 16px; max-width: 760px; margin: auto; }
     .info { background: #14233a; border: 1px solid #314967; border-radius: 14px; padding: 18px; }
-    h2 { margin: 0 0 10px; color: var(--accent); font-size: 1.1rem; }
+    h2 { margin: 0 0 10px; color: #ff9800; font-size: 1.1rem; }
     .description { margin: 0; color: #e6eef9; line-height: 1.5; }
     .function, .warning { margin-top: 14px; padding: 12px; border-radius: 9px; line-height: 1.45; }
     .function { border-left: 4px solid var(--accent); background: #0c1728; color: #d6e3f2; }
@@ -33,10 +33,10 @@
   <main><section class="info"><h2>Description and function</h2><p class="description" id="description"></p><div class="function" id="function"></div><div class="warning" id="warning"></div></section></main>
   <script>
     const data = {
-      water: { title: 'Water Fire Extinguisher', accent: '#e11d1d', file: 'water', description: 'A water extinguisher cools burning material and is intended for ordinary combustible fires.', function: '<b>Use for:</b> Class A fires such as wood, paper and textiles.', warning: '<b>Do not use on:</b> live electrical equipment, flammable liquids, cooking oils or fats.' },
-      foam: { title: 'Foam Fire Extinguisher', accent: '#e7c662', file: 'foam', description: 'A foam extinguisher forms a blanket over burning liquid while also cooling the fire.', function: '<b>Use for:</b> Class A materials and Class B flammable liquids.', warning: '<b>Do not use on:</b> cooking oils or fats. Keep clear of live electrical equipment unless specifically rated for it.' },
-      'dry-powder': { title: 'Dry Powder Fire Extinguisher', accent: '#2861df', file: 'dry-powder', description: 'Dry powder interrupts the chemical reaction of fire and gives fast knock-down across several fire classes.', function: '<b>Use for:</b> Class A, B and C fires; suitable for live electrical fires when used at a safe distance.', warning: '<b>Do not use in:</b> small enclosed rooms unless necessary—the powder can reduce visibility and breathing comfort.' },
-      co2: { title: 'Carbon Dioxide (CO₂) Fire Extinguisher', accent: '#25272d', file: 'co2', description: 'CO₂ removes oxygen around the fire without leaving powder or water residue.', function: '<b>Use for:</b> Class B flammable-liquid fires and live electrical equipment. This is the correct choice for this Mission 1 electrical fusebox fire.', warning: '<b>Do not use on:</b> deep-seated Class A fires. Hold the horn by its insulated handle because it becomes extremely cold.' }
+      water: { title: 'Water Fire Extinguisher', accent: '#e11d1d', file: 'water', description: 'Class A combustible solids: wood, paper, cardboard and textiles. Rapidly cools the burning material below its ignition temperature.', function: '<b>Function:</b> Uses water to remove heat from Class A fires.', warning: '<b>Do not use on:</b> live electrical equipment, flammable liquids, cooking oils or fats.' },
+      foam: { title: 'Foam Fire Extinguisher', accent: '#e7c662', file: 'foam', description: 'Class A combustible solids and Class B flammable liquids: petrol, paints and solvents. Forms a smothering blanket over the fire surface to block oxygen and cool the fuel.', function: '<b>Function:</b> Smothers the fire surface and cools the fuel.', warning: '<b>Do not use on:</b> cooking oils or fats. Keep clear of live electrical equipment unless specifically rated for it.' },
+      'dry-powder': { title: 'Dry Powder Fire Extinguisher', accent: '#2861df', file: 'dry-powder', description: 'Class A solids, Class B liquids, Class C flammable gases, and live electrical hazards. Chemically interrupts combustion and smothers flames with a dry chemical agent.', function: '<b>Function:</b> Interrupts combustion and rapidly knocks down flames.', warning: '<b>Note:</b> Avoid small enclosed rooms unless necessary—the powder reduces visibility and breathing comfort.' },
+      co2: { title: 'Carbon Dioxide (CO₂) Fire Extinguisher', accent: '#ff9800', file: 'co2', description: 'Live electrical equipment (Class E), switchboards, and Class B flammable liquid fires. Displaces oxygen around the fire and leaves zero residue.', function: '<b>Function:</b> Removes oxygen around the fire without leaving powder or water residue.', warning: '<b>Do not use on:</b> deep-seated Class A fires. Hold the horn by its insulated handle because it becomes extremely cold.' }
     };
     const item = data[new URLSearchParams(location.search).get('extinguisher')] || data.co2;
     document.title = `SafetyVerse AR: ${item.title}`;
